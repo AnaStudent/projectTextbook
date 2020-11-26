@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Textbook Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Textbook List</h1>
+    <a href="/new">Create New Textbook</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Textbook ID</th>
+            <th>Textbook Name</th>
+            <th>Textbook Description</th>
+            <th>Textbook ISBN</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="textbook : ${listTextbooks}">
+            <td th:text="${textbook.bookId}">Textbook ID</td>
+            <td th:text="${textbook.bookName}">Textbook Name</td>
+            <td th:text="${textbook.bookDescription}">Textbook Description</td>
+            <td th:text="${textbook.bookISBN}">Textbook ISBN</td>
+            <td th:text="${textbook.price}">Price</td>
+            <td>
+                <a th:href="/@{'/edit/' + ${textbook.bookId}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="/@{'/delete/' + ${textbook.bookId}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
