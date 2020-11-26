@@ -29,9 +29,9 @@
             <td th:text="${textbook.bookISBN}">Textbook ISBN</td>
             <td th:text="${textbook.price}">Price</td>
             <td>
-                <a th:href="/@{'/edit/' + ${textbook.bookId}}">Edit</a>
+                <a th:href="/'/edit/' + ${textbook.bookId}">Edit</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="/@{'/delete/' + ${textbook.bookId}}">Delete</a>
+                <a th:href="/'/delete/' + ${textbook.bookId}">Delete</a>
             </td>
         </tr>
         </tbody>

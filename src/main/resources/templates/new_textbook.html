@@ -7,22 +7,22 @@
 </head>
 <body>
 <div align="center">
-    <h1>Textbook New Product</h1>
+    <h1>Create New Textbook</h1>
     <br />
     <form action="#" th:action="@{/save}" th:object="${textbook}"
           method="post">
 
         <table border="0" cellpadding="10">
             <tr>
-                <td>Product Name:</td>
+                <td>Textbook Name:</td>
                 <td><input type="text" th:field="*{bookName}" /></td>
             </tr>
             <tr>
-                <td>Brand:</td>
+                <td>Textbook Description:</td>
                 <td><input type="text" th:field="*{bookDescription}" /></td>
             </tr>
             <tr>
-                <td>Made In:</td>
+                <td>Textbook ISBN:</td>
                 <td><input type="text" th:field="*{bookISBN}" /></td>
             </tr>
             <tr>
