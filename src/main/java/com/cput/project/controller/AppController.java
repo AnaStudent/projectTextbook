@@ -1,6 +1,8 @@
 package com.cput.project.controller;
 
+import com.cput.project.entity.Student;
 import com.cput.project.entity.Textbook;
+import com.cput.project.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.cput.project.service.TextbookService;
@@ -18,20 +20,20 @@ public class AppController {
 
    @Autowired
    private TextbookService textbookService;
+   @Autowired
+   private StudentService studentService;
 
     @RequestMapping("/")
     public String viewHomePage(Model model) {
         List<Textbook> listTextbooks = textbookService.listAll();
         model.addAttribute("listTextbooks", listTextbooks);
-
         return "index";
     }
 
-    @RequestMapping("/new")
-    public String showNewProductPage(Model model) {
+    @RequestMapping("/new_textbook")
+    public String showNewTextbookPage(Model model) {
         Textbook textbook = new Textbook();
         model.addAttribute("textbook", textbook);
-
         return "new_textbook";
     }
 
@@ -53,5 +55,15 @@ public class AppController {
     public String deleteTextbook(@PathVariable(name = "bookId") int id) {
         textbookService.delete(id);
         return "redirect:/";
+    }
+
+    @RequestMapping("/student")
+    public String createAndShowNewUser (Model model){
+        Student student = new Student();
+        model.addAttribute("student", student);
+
+        List<Student>studentList = studentService.listAll();
+        model.addAttribute("student", student);
+        return "show_student";
     }
 }
